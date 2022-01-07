@@ -1,0 +1,35 @@
+{
+  "name": "@metaphor-xyz/eslint-config",
+  "version": "1.0.0",
+  "description": "Standard ESLint config for Metaphor projects",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metaphor-xyz/eslint-config.git"
+  },
+  "author": "Metaphor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/metaphor-xyz/eslint-config/issues"
+  },
+  "homepage": "https://github.com/metaphor-xyz/eslint-config#readme",
+  "dependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^2.0.4",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.24.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.3.0"
+  },
+  "devDependencies": {
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2"
+  }
+}
