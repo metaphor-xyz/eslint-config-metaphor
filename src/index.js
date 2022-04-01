@@ -4,6 +4,7 @@ module.exports = {
     node: true,
     es6: true,
     mocha: true,
+    browser: true,
   },
   plugins: [
     "@typescript-eslint",
@@ -11,14 +12,36 @@ module.exports = {
     "react-hooks",
     "jsx-a11y",
     "import",
+    "jest",
+    "jest-dom",
+    "testing-library",
+    "unicorn",
+    "promise",
+    "sonarjs",
     "prettier",
   ],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    // 'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    "plugin:import/typescript",
+    "plugin:react/recommended",
     "plugin:react-hooks/recommended",
+    "plugin:unicorn/recommended",
+    "plugin:promise/recommended",
+    "plugin:jest/recommended",
+    "plugin:jest-dom/recommended",
+    "plugin:testing-library/react",
+    "plugin:jsx-a11y/recommended",
+    "plugin:sonarjs/recommended",
     "plugin:prettier/recommended",
   ],
+  settings: {
+    react: {
+      pragma: "React",
+      version: "detect",
+    },
+  },
   globals: {
     Atomics: "readonly",
     SharedArrayBuffer: "readonly",
@@ -26,12 +49,15 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: "module",
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   ignorePatterns: ["node_modules", "build", "*-build", "*.json"],
   rules: {
     "no-console": "warn",
     "no-shadow": "warn",
-    "ignored-by-default": 0,
+    "ignored-by-default": "off",
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
@@ -41,11 +67,11 @@ module.exports = {
         varsIgnorePattern: "^_",
       },
     ],
-    "@typescript-eslint/no-non-null-assertion": 0,
-    "@typescript-eslint/ban-ts-ignore": 0,
-    "@typescript-eslint/ban-ts-comment": 0,
-    "@typescript-eslint/explicit-function-return-type": 0,
-    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "prettier/prettier": [
       "error",
       {
@@ -55,7 +81,7 @@ module.exports = {
         arrowParens: "avoid",
         importOrder: ["^[./]"],
         importOrderSeparation: true,
-      }
+      },
     ],
   },
 };
