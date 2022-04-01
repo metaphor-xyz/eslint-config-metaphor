@@ -23,7 +23,6 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    // 'plugin:@typescript-eslint/recommended-requiring-type-checking',
     "plugin:import/typescript",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
@@ -55,9 +54,16 @@ module.exports = {
   },
   ignorePatterns: ["node_modules", "build", "*-build", "*.json"],
   rules: {
-    "no-console": "warn",
+    /**
+     * eslint
+     **/
+    "no-console": ["error", { allow: ["warn", "error"] }],
     "no-shadow": "warn",
     "ignored-by-default": "off",
+    eqeqeq: "error",
+    /**
+     * @typescript-eslint
+     **/
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
@@ -72,6 +78,29 @@ module.exports = {
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    /**
+     * eslint-plugin-react
+     **/
+    "react/prop-types": "off",
+    "react/no-unescaped-entities": "off",
+    /**
+     * eslint-plugin-unicorn
+     **/
+    "unicorn/filename-case": "off",
+    "unicorn/no-null": "off",
+    "unicorn/no-useless-undefined": "off",
+    "unicorn/prefer-module": "off",
+    "unicorn/prevent-abbreviations": "off",
+    "unicorn/no-abusive-eslint-disable": "off",
+    "unicorn/no-array-for-each": "off",
+    /**
+     * eslint-plugin-promise
+     **/
+    "promise/always-return": "off",
+    "promise/catch-or-return": ["error", { allowFinally: true }],
+    /**
+     * eslint-plugin-prettier
+     **/
     "prettier/prettier": [
       "error",
       {
