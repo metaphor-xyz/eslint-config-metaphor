@@ -86,18 +86,39 @@ module.exports = {
     /**
      * eslint-plugin-unicorn
      **/
-    "unicorn/filename-case": "off",
     "unicorn/no-null": "off",
     "unicorn/no-useless-undefined": "off",
     "unicorn/prefer-module": "off",
     "unicorn/prevent-abbreviations": "off",
     "unicorn/no-abusive-eslint-disable": "off",
     "unicorn/no-array-for-each": "off",
+    "unicorn/expiring-todo-comments": "off",
+    "unicorn/filename-case": [
+      "error",
+      {
+        "cases": {
+          "camelCase": true,
+          "pascalCase": true
+        },
+        "ignore": [
+          // ignore files that use acronyms in name, ie. "useENSName", "OverviewForDAO"
+          "^[a-z]+[A-Z]+[a-z]*\..*$",
+          "(^[A-Z][a-z]+[A-Za-z]*[A-Z]+\..*$)|(^[A-Z]+[a-z]+[A-Z][a-z]*\..*$)",
+        ],
+      }
+    ],
+    "unicorn/import-style": "off",
     /**
      * eslint-plugin-promise
      **/
     "promise/always-return": "off",
     "promise/catch-or-return": ["error", { allowFinally: true }],
+    /**
+     * eslint-plugin-sonarjs
+     **/
+    "sonarjs/cognitive-complexity": "off",
+    "sonarjs/no-duplicate-string": "off",
+    "sonarjs/no-identical-functions": "off",
     /**
      * eslint-plugin-prettier
      **/
