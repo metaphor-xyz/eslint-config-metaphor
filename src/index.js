@@ -4,6 +4,7 @@ module.exports = {
     node: true,
     es6: true,
     mocha: true,
+    browser: true,
   },
   plugins: [
     "@typescript-eslint",
@@ -11,14 +12,35 @@ module.exports = {
     "react-hooks",
     "jsx-a11y",
     "import",
+    "jest",
+    "jest-dom",
+    "testing-library",
+    "unicorn",
+    "promise",
+    "sonarjs",
     "prettier",
   ],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
+    "plugin:react/recommended",
     "plugin:react-hooks/recommended",
+    "plugin:unicorn/recommended",
+    "plugin:promise/recommended",
+    "plugin:jest/recommended",
+    "plugin:jest-dom/recommended",
+    "plugin:testing-library/react",
+    "plugin:jsx-a11y/recommended",
+    "plugin:sonarjs/recommended",
     "plugin:prettier/recommended",
   ],
+  settings: {
+    react: {
+      pragma: "React",
+      version: "detect",
+    },
+  },
   globals: {
     Atomics: "readonly",
     SharedArrayBuffer: "readonly",
@@ -26,12 +48,22 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: "module",
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   ignorePatterns: ["node_modules", "build", "*-build", "*.json"],
   rules: {
-    "no-console": "warn",
+    /**
+     * eslint
+     **/
+    "no-console": ["error", { allow: ["warn", "error"] }],
     "no-shadow": "warn",
-    "ignored-by-default": 0,
+    "ignored-by-default": "off",
+    eqeqeq: "error",
+    /**
+     * @typescript-eslint
+     **/
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
@@ -41,11 +73,55 @@ module.exports = {
         varsIgnorePattern: "^_",
       },
     ],
-    "@typescript-eslint/no-non-null-assertion": 0,
-    "@typescript-eslint/ban-ts-ignore": 0,
-    "@typescript-eslint/ban-ts-comment": 0,
-    "@typescript-eslint/explicit-function-return-type": 0,
-    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    /**
+     * eslint-plugin-react
+     **/
+    "react/prop-types": "off",
+    "react/no-unescaped-entities": "off",
+    /**
+     * eslint-plugin-unicorn
+     **/
+    "unicorn/no-null": "off",
+    "unicorn/no-useless-undefined": "off",
+    "unicorn/prefer-module": "off",
+    "unicorn/prevent-abbreviations": "off",
+    "unicorn/no-abusive-eslint-disable": "off",
+    "unicorn/no-array-for-each": "off",
+    "unicorn/expiring-todo-comments": "off",
+    "unicorn/filename-case": [
+      "error",
+      {
+        "cases": {
+          "camelCase": true,
+          "pascalCase": true
+        },
+        "ignore": [
+          // ignore files that use acronyms in name, ie. "useENSName", "OverviewForDAO"
+          "^[a-z]+[A-Z]+[a-z]*\..*$",
+          "(^[A-Z][a-z]+[A-Za-z]*[A-Z]+\..*$)|(^[A-Z]+[a-z]+[A-Z][a-z]*\..*$)",
+        ],
+      }
+    ],
+    "unicorn/import-style": "off",
+    /**
+     * eslint-plugin-promise
+     **/
+    "promise/always-return": "off",
+    "promise/catch-or-return": ["error", { allowFinally: true }],
+    /**
+     * eslint-plugin-sonarjs
+     **/
+    "sonarjs/cognitive-complexity": "off",
+    "sonarjs/no-duplicate-string": "off",
+    "sonarjs/no-identical-functions": "off",
+    /**
+     * eslint-plugin-prettier
+     **/
     "prettier/prettier": [
       "error",
       {
@@ -55,7 +131,7 @@ module.exports = {
         arrowParens: "avoid",
         importOrder: ["^[./]"],
         importOrderSeparation: true,
-      }
+      },
     ],
   },
 };
