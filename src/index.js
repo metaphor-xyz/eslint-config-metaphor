@@ -125,6 +125,7 @@ module.exports = {
     "prettier/prettier": [
       "error",
       {
+        plugins: [require('@trivago/prettier-plugin-sort-imports')],
         trailingComma: "es5",
         singleQuote: true,
         printWidth: 120,
