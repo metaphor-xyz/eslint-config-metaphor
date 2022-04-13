@@ -1,6 +1,6 @@
 {
   "name": "@metaphor-xyz/eslint-config",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Standard ESLint config for Metaphor projects",
   "main": "src/index.js",
   "repository": {
@@ -14,6 +14,7 @@
   },
   "homepage": "https://github.com/metaphor-xyz/eslint-config-metaphor#readme",
   "dependencies": {
+    "@rushstack/eslint-patch": "^1.1.2",
     "@trivago/prettier-plugin-sort-imports": "^3.2.0",
     "@typescript-eslint/eslint-plugin": "^5.17.0",
     "@typescript-eslint/parser": "^5.17.0",
